@@ -1,12 +1,21 @@
-interface Person {
-    firstName: string;
-    lastName: string;
-}
+let Input: HTMLInputElement = <HTMLInputElement>document.getElementById("Input");
+let Output: HTMLDivElement = <HTMLDivElement>document.getElementById("Output");
 
-function greeter(person: Person): string {
-    return "Hello, " + person.firstName + " " + person.lastName;
-}
-let user: Person = { firstName: "John", lastName: "Doe" };
+let SelectionElement: HTMLSelectElement = <HTMLSelectElement>document.getElementById("DropDownSelection");
+let ApplyButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("ApplyButton");
+ApplyButton.addEventListener("click",toUpperOrLowerCase)
 
-let element: HTMLDivElement = <HTMLDivElement> document.getElementById("content");
-element.innerHTML = greeter(user);
+
+function toUpperOrLowerCase(): void {
+    let DropDownSelection: string = SelectionElement.value;
+    let InputUser: string = Input.value;
+    let TextInput = InputUser; 
+
+    if(DropDownSelection === "Uppercase") {
+    Output.innerHTML = String(TextInput).toUpperCase();
+    }
+
+    if(DropDownSelection === "Lowercase"){
+    Output.innerHTML = String(TextInput).toLowerCase();
+    }
+ }
